@@ -1,12 +1,17 @@
 def fib(n):
-    if n == 1:
-        return 0
-    elif n == 2:
-        return 111
-    return fib(n - 1) + fib(n - 2)
+    if n < 1:
+        print("Uncorrect number:1 n > 1"); return ValueError
+    
+    counts = [0, 1]
+
+    while len(counts) < n and n > 1:
+        counts += [counts[-1] + counts[-2]]
+    for i, count in enumerate(counts):
+        if i >= n:
+            break
+        print(count)
 
 
 print("Hello, World!")
 
-n = int(input("Input n: "))
-print(f"Result fib({n}) = {fib(n)}")
+n = int(input("Input n: ")); fib(n)
